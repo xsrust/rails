@@ -60,12 +60,7 @@ module TranslationIO
     end
 
     def require_gettext_dependencies
-      require 'gettext'
-      require 'gettext/po'
-      require 'gettext/po_parser'
-      require 'gettext/tools'
-      require 'gettext/text_domain_manager'
-      require 'gettext/tools/xgettext'
+      require 'fast_gettext'
     end
 
     # Missing languages from Locale that are in Translation.io
@@ -75,10 +70,10 @@ module TranslationIO
     end
 
     def add_parser_for_erb_source_formats(new_erb_formats)
-      existing_extensions = GetText::ErbParser.instance_variable_get("@config")[:extnames]
+      #existing_extensions = GetText::ErbParser.instance_variable_get("@config")[:extnames]
       new_extensions = new_erb_formats.collect { |ext| ".#{ext}" }
 
-      GetText::ErbParser.instance_variable_get("@config")[:extnames] = (existing_extensions + new_extensions).uniq
+      #GetText::ErbParser.instance_variable_get("@config")[:extnames] = (existing_extensions + new_extensions).uniq
     end
 
     def info(message, level = 0, verbose_level = 0)
