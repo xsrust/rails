@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'gettext'
+gem 'fast_gettext'
 gem 'simplecov'
 gem 'rspec'
 gem 'rails'

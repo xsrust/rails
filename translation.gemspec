@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
     "source_code_uri"   => "https://github.com/translation/rails"
   }
 
-  s.add_dependency('gettext', '~> 3.2', '>= 3.2.5')
+  s.add_dependency('fast_gettext')
 
   s.add_development_dependency('rake')
   s.add_development_dependency('simplecov')
