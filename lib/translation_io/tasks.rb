@@ -96,10 +96,13 @@ namespace :translation do
 
   def parse_domains
     domains = nil
-    OptionParser.new do |opts|
+
+     o = OptionParser.new do |opts|
       opts.banner = "Usage: rake add [options]"
       opts.on("-d", "--domains ARG", String) { |domain| domains = domain.split{','} }
-    end.parse!
+    end
+    args = o.order!(ARGV) {}
+    o.parse!(args)
     if domains.nil?
       # default to all domains if none passed in
       TranslationIO.config.domains.collect{|d| d[:name]}
