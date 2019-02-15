@@ -112,6 +112,6 @@ namespace :translation do
   end
 
   def fetch_domain(domain_name)
-    TranslationIO.config.domains.select{|d| d[:name]==domain_name}
+    TranslationIO.config.domains.select{|d| d[:name]==domain_name}.first
   end
 end
