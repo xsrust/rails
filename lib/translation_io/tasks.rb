@@ -17,7 +17,7 @@ namespace :translation do
     config = TranslationIO.config
     if config.domains.present?
       parse_domains.each do |domain|
-        config.change_domain(fetch_domain(domain))
+        config.set_domain(fetch_domain(domain))
         TranslationIO.client = TranslationIO::Client.new(config.api_key, config.endpoint)
         TranslationIO.client.init
       end
@@ -31,7 +31,7 @@ namespace :translation do
     config = TranslationIO.config
     if config.domains.present?
       parse_domains.each do |domain|
-        config.change_domain(fetch_domain(domain))
+        config.set_domain(fetch_domain(domain))
         TranslationIO.client = TranslationIO::Client.new(config.api_key, config.endpoint)
         TranslationIO.client.sync
       end
@@ -45,7 +45,7 @@ namespace :translation do
     config = TranslationIO.config
     if config.domains.present?
       parse_domains.each do |domain|
-        config.change_domain(fetch_domain(domain))
+        config.set_domain(fetch_domain(domain))
         TranslationIO.client = TranslationIO::Client.new(config.api_key, config.endpoint)
         TranslationIO.client.sync_and_show_purgeable
       end
@@ -59,7 +59,7 @@ namespace :translation do
     config = TranslationIO.config
     if config.domains.present?
       parse_domains.each do |domain|
-        config.change_domain(fetch_domain(domain))
+        config.set_domain(fetch_domain(domain))
         TranslationIO.client = TranslationIO::Client.new(config.api_key, config.endpoint)
         TranslationIO.client.sync_and_purge
       end
@@ -73,7 +73,7 @@ namespace :translation do
     config = TranslationIO.config
     if config.domains.present?
       parse_domains.each do |domain|
-        config.change_domain(fetch_domain(domain))
+        config.set_domain(fetch_domain(domain))
         TranslationIO.client = TranslationIO::Client.new(config.api_key, config.endpoint)
         TranslationIO.client.sync_readonly
       end

@@ -35,7 +35,7 @@ module TranslationIO
       yield @config
 
       # setup for default config (aka should work the same but avoid app/views/branded)
-      @config.change_domain(@config.domains.nil? ? nil : @config.domains.first)
+      @config.set_domain(@config.domains.nil? ? nil : @config.domains.first)
 
       unless @config.disable_gettext
         require_gettext_dependencies
@@ -68,7 +68,7 @@ module TranslationIO
       end
 
       @client = Client.new(@config.api_key, @config.endpoint)
-      
+
       return true
     end
 
