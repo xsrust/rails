@@ -4,6 +4,8 @@ module TranslationIO
       class UpdatePotFileStep
         def initialize(pot_path, source_files)
           @pot_path = pot_path
+          print "IN UPDATE, Source Files: "
+          print source_files
 
           if TranslationIO.config.disable_gettext
             @source_files = empty_source_files
