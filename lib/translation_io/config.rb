@@ -147,7 +147,7 @@ module TranslationIO
       ignored_source_paths.each do |ignored_source_path|
         file_paths = file_paths.select { |file_path| !file_path.start_with?(ignored_source_path) }
       end
-
+      puts file_paths
       file_paths
     end
 
