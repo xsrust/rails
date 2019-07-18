@@ -130,8 +130,9 @@ module TranslationIO
     end
 
     def source_files_for_formats(formats)
-      print "IN THE SOURCE FILE FUNCTION"
+      print "IN THE SOURCE FILE FUNCTION\n"
       file_paths = Dir["**/*.{#{formats.join(',')}}"]
+      print "#{file_paths.length} files"
 
       # Add gems that need to be parsed by GetText
       parsed_gems.each do |gem_name|
@@ -146,10 +147,12 @@ module TranslationIO
 
       # remove ignored paths
       ignored_source_paths.each do |ignored_source_path|
+        print "removing " + ignored_source_path + " -> "
         file_paths = file_paths.select { |file_path| !file_path.start_with?(ignored_source_path) }
+        print "#{file_paths.length} files left \n"
       end
       print file_paths
-      print "------------------------"
+      print "------------------------\n"
       file_paths
     end
 
